@@ -88,6 +88,10 @@ $high = $MaximumClients
 
 while ($low -lt $high) {
     $mid = [Math]::Ceiling(($low + $high) / 2)
+    if ($mid -le 0) {
+        Write-Error "Error: mid is less than 0"
+        break
+    }
     $percent_packet_loss = Test-CtsTraffic -Clients $mid
 
     Write-Output "Testing with $mid clients resulted in $percent_packet_loss% packet loss"
