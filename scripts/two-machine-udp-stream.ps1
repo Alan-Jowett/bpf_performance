@@ -49,8 +49,6 @@ function Test-CtsTraffic {
     }
 
     $percent_packet_loss = [Math]::Round(($drops * 100) / $completed)
-    Write-Output "$Clients resulted in $percent_packet_loss% packet loss"
-
     return $percent_packet_loss
 }
 
@@ -90,11 +88,11 @@ $high = $MaximumClients
 
 while ($low -lt $high) {
     $mid = [Math]::Ceiling(($low + $high) / 2)
-    $packet_rate = Test-CtsTraffic -Clients $mid
+    $percent_packet_loss = Test-CtsTraffic -Clients $mid
 
-    Write-Output "Testing with $mid clients resulted in $packet_rate% packet loss"
+    Write-Output "Testing with $mid clients resulted in $percent_packet_loss% packet loss"
 
-    if ($packet_rate -gt 1) {
+    if ($percent_packet_loss -gt 1) {
         $high = $mid - 1
     } else {
         $low = $mid
