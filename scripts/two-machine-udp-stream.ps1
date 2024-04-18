@@ -92,6 +92,7 @@ while ($low -lt $high) {
         Write-Error "Error: mid is less than 0"
         break
     }
+    Write-Output "Testing with $mid clients..."
     $percent_packet_loss = Test-CtsTraffic -Clients $mid
 
     Write-Output "Testing with $mid clients resulted in $percent_packet_loss% packet loss"
