@@ -7,8 +7,8 @@ Include(FetchContent)
 
 FetchContent_Declare(
   yaml-cpp
-  GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
-  GIT_TAG        0.8.0 # or a later release
+  GIT_REPOSITORY https://github.com/gruenich/yaml-cpp.git
+  GIT_TAG        feature/cmake-3.5
 )
 
 FetchContent_MakeAvailable(yaml-cpp)
